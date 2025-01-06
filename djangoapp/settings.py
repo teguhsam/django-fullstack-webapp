@@ -82,7 +82,7 @@ DATABASES = {
 }
 
 # Customize user model
-AUTH_USER_MODEL = "apps.UserProfile"
+AUTH_USER_MODEL = "app.UserProfile"
 
 
 # Password validation

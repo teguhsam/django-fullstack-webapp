@@ -57,3 +57,12 @@ poetry run python manage.py createsuperuser
 ```
 poetry run python manage.py startapp app
 ```
+
+# Processes
+
+## Make Migrations
+
+```
+poetry run python manage.py makemigrations
+poetry run python manage.py migrate
+```
