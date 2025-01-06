@@ -1,14 +1,14 @@
 [project]
-name = "app"
+name = "djangoapp"
 version = "0.1.0"
 description = ""
 authors = [
     {name = "Teguh Samudra",email = "teguhsam9@gmail.com"}
 ]
 readme = "README.md"
-requires-python = ">=3.13"
+requires-python = ">=3.12"
 dependencies = [
-    "django>5.0.1",
+    "django==5.0.3"
 ]
 
 
