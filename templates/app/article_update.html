@@ -1,5 +1,6 @@
 {% extends "app/base.html" %} {% block content %}
 <h1>Edit Article</h1>
+<p>Last edited on {{article.updated_at | date:"jS F Y"}}</p>
 <form method="POST">
   {%csrf_token%} {{form.as_p}}
   <button type="submit">Save</button>
