@@ -1,6 +1,7 @@
 {% extends "app/base.html" %} {% block content %}
 <h1>Articles</h1>
 <a href="{% url 'create_article' %}">Create article</a>
+{% if articles%}
 <ul>
   {% for article in articles %}
   <li>
@@ -9,4 +10,6 @@
   </li>
   {% endfor %}
 </ul>
-{% endblock content %}
+{%else%}
+<p>You have no articles yet.</p>
+{%endif%} {% endblock content %}
