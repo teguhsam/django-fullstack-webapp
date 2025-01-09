@@ -66,3 +66,9 @@ poetry run python manage.py startapp app
 poetry run python manage.py makemigrations
 poetry run python manage.py migrate
 ```
+
+## Run the app
+
+```
+poetry run python manage.py runserver
+```
