@@ -1,5 +1,3 @@
-# Dockerfile
-
 # Base image
 FROM python:3.12-bullseye
 
@@ -11,10 +9,10 @@ WORKDIR /code
 RUN pip install poetry
 
 # Copy project files needed for dependency installation
-COPY pyproject.toml poetry.lock README.md ./
+COPY pyproject.toml poetry.lock .
 
-# Install dependencies
-RUN poetry install
+# Install dependencies (using --no-root if you don't want to install the current project)
+RUN poetry install --no-root
 
 # Copy the rest of the application code
 COPY . .

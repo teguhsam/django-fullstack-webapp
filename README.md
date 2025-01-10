@@ -1,24 +1,32 @@
-# Requirements
+# DjangoApp Project
 
-## Install pyenv
+## Requirements
 
-```
+### Install pyenv
+
+`pyenv` is used to manage different versions of Python.
+
+```bash
 brew install pyenv
 pyenv version
 pyenv install -l
 pyenv global 3.12.2
 ```
 
+### Install pipx
+
 ## Install pipx
+
+`pipx` is used to install and manage Python applications in isolated environments.
 
 ```
 brew install pipx
 pipx ensurepath
 ```
 
-## Install `poetry`
+### Install `poetry`
 
-Dependencies and packages manager for python
+Poetry is a dependency and package manager for Python.
 
 ```
 pip install poetry
@@ -26,31 +34,37 @@ poetry new djangoapp
 poetry install
 ```
 
-verify installation:
+Verify installation:
 
 ```
 poetry run django-admin --version
-5.0.3
+# Example output: 5.0.3
 ```
 
 # Starting the Project
 
-```
-poetry run django-admin startproject djangoapp .
-```
+1. Create a new Django project:
 
-## start application
+   ```
+   poetry run django-admin startproject djangoapp .
+   ```
 
-```
-poetry run python manage.py runserver
-```
+2. start application
 
-## Run Migration
+   ```
+   poetry run python manage.py runserver
+   ```
 
-```
-poetry run python manage.py migrate
-poetry run python manage.py createsuperuser
-```
+3. Run Migration
+
+   ```
+   poetry run python manage.py migrate
+   ```
+
+4. Create a superuser
+   ```
+   poetry run python manage.py createsuperuser
+   ```
 
 ## Create an `app`
 
@@ -62,13 +76,45 @@ poetry run python manage.py startapp app
 
 ## Make Migrations
 
-```
-poetry run python manage.py makemigrations
-poetry run python manage.py migrate
-```
+1. Create migrations:
+
+   ```
+   poetry run python manage.py makemigrations
+   ```
+
+2. Apply migrations:
+   ```
+   poetry run python manage.py migrate
+   ```
 
 ## Run the app
 
 ```
 poetry run python manage.py runserver
+```
+
+# Docker
+
+Build docker
+
+```
+docker build -t djangoapp .
+```
+
+Run container:
+
+```
+docker run -p 8005:8000 --name djangoapp djangoapp
+```
+
+Run Migration:
+
+```
+docker exec djangoapp poetry run python manage.py migrate
+```
+
+Prune:
+
+```
+docker builder prune -a
 ```
