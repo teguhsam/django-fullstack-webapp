@@ -105,6 +105,8 @@ Run container:
 
 ```
 docker run -p 8005:8000 --name djangoapp djangoapp
+
+docker run -p 8005:8000 --name djangoapp -v "$(pwd):/code" djangoapp
 ```
 
 Run Migration:
