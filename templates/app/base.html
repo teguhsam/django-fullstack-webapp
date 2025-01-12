@@ -6,7 +6,21 @@
     <title>Django App</title>
   </head>
   <body>
-    <nav>Common Navigation bar for all templates</nav>
+    <nav>
+      <ul>
+        <li><a href="{% url 'home' %}">Articles</a></li>
+        <li>
+          {% if user.is_authenticated %}
+          <form method="POST" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button type="submit">Log out</button>
+          </form>
+          {% else %}
+          <a href="{% url 'login' %}">Log In</a>
+          {% endif %}
+        </li>
+      </ul>
+    </nav>
     {% block content %} {% endblock content %}
     <footer>Common footer for all templates</footer>
   </body>
