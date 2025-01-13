@@ -41,7 +41,12 @@ DJANGO_APPS = [
     "django.contrib.staticfiles",
 ]
 
-THIRD_PARTY_APPS = ["allauth", "allauth.account"]
+THIRD_PARTY_APPS = [
+    "allauth",
+    "allauth.account",
+    "allauth.socialaccount",
+    "allauth.socialaccount.providers.github",
+]
 
 PROJECT_APPS = [
     "app.apps.AppConfig",
