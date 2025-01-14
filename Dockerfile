@@ -1,6 +1,9 @@
 # Base image
 FROM python:3.12-bullseye
 
+RUN apt update
+RUN apt install gettext -y
+
 # Create and set the working directory
 RUN mkdir /code
 WORKDIR /code
