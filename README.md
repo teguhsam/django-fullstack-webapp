@@ -58,6 +58,8 @@ poetry run django-admin --version
 3. Run Migration
 
    ```
+   poetry run python manage.py showmigrations
+
    poetry run python manage.py migrate
    ```
 

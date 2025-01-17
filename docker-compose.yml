@@ -2,15 +2,14 @@ name: djangoapp-local
 services:
   db:
     image: postgres
-    restart: no
     env_file:
       - ./.env.docker
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
       test: pg_isready -d $${POSTGRES_DB} -U $${POSTGRES_USER}
-      interval: 1m30s
-      timeout: 30s
+      interval: 2s
+      timeout: 10s
       retries: 5
       start_period: 30s
   web:

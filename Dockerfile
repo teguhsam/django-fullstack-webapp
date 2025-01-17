@@ -20,6 +20,9 @@ RUN poetry install --no-root
 # Copy the rest of the application code
 COPY . .
 
+# Change file permission to executable
+RUN chmod 755 /code/start-django.sh
+
 # Expose port and set the command (update as needed for your project)
 EXPOSE 8000
-CMD ["poetry", "run", "python", "manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["/code/start-django.sh"]
