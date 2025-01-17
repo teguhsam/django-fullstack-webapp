@@ -122,3 +122,9 @@ Prune:
 ```
 docker builder prune -a
 ```
+
+# Tailwind
+
+```
+npx tailwindcss -i ./static/input.css -o ./static/output.css --watch
+```
