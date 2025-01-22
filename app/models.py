@@ -14,7 +14,7 @@ ARTICLE_STATUS = (
 
 class UserProfile(AbstractUser):
     email = models.EmailField(_("email address"), max_length=255, unique=True)
-    objects = UserProfileManager
+    objects = UserProfileManager()
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []
 

@@ -9,7 +9,7 @@ class Migration(migrations.Migration):
         ("app", "0001_initial"),
     ]
 
-    def create_superuser(app, schema_editor):
+    def create_superuser(apps, schema_editor):
         from django.contrib.auth import get_user_model
 
         User = get_user_model()
