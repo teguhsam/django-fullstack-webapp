@@ -3,3 +3,4 @@ djangoapp/__pycache__
 app/__pycache__
 app/migrations/__pycache__
 .env.docker
+node_modules

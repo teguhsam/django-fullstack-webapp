@@ -126,5 +126,6 @@ docker builder prune -a
 # Tailwind
 
 ```
-npx tailwindcss -i ./static/input.css -o ./static/output.css --watch
+nvm use 22
+npx @tailwindcss/cli -i ./static/input.css -o ./static/output.css --watch
 ```
