@@ -20,13 +20,24 @@
         <a class="button primary" href="{% url 'create_article' %}"
           >Create New</a
         >
-        <a class="hover:underline" href="{% url 'home' %}">Articles</a>
-        <a class="hover:underline" href="{% url 'account_email' %}"
+        <a
+          class="hover:shadow-underline hover:shadow-gray-300"
+          href="{% url 'home' %}"
+          >Articles</a
+        >
+        <a
+          class="hover:shadow-underline hover:shadow-gray-300"
+          href="{% url 'account_email' %}"
           >Change Email</a
         >
         <form method="POST" action="{% url 'account_logout' %}">
           {% csrf_token %}
-          <button class="hover:underline" type="submit">Log out</button>
+          <button
+            class="hover:shadow-underline hover:shadow-gray-300"
+            type="submit"
+          >
+            Log out
+          </button>
         </form>
         {% else %}
         <a class="button secondary text-sm" href="{% url 'account_login' %}"

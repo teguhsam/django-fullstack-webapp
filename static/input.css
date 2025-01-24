@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+@theme {
+  --shadow-underline: inset 0 -2px 0 0;
+}
+
 .button {
   @apply font-medium px-4 py-2 rounded-md;
 }
