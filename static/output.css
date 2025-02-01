@@ -557,9 +557,6 @@
   .mx-auto {
     margin-inline: auto;
   }
-  .my-2 {
-    margin-block: calc(var(--spacing) * 2);
-  }
   .mt-1 {
     margin-top: calc(var(--spacing) * 1);
   }
@@ -697,9 +694,6 @@
   .border-gray-300 {
     border-color: var(--color-gray-300);
   }
-  .border-red-300 {
-    border-color: var(--color-red-300);
-  }
   .bg-gray-200 {
     background-color: var(--color-gray-200);
   }
@@ -708,9 +702,6 @@
   }
   .bg-gray-800 {
     background-color: var(--color-gray-800);
-  }
-  .bg-red-50 {
-    background-color: var(--color-red-50);
   }
   .p-2 {
     padding: calc(var(--spacing) * 2);
@@ -789,18 +780,11 @@
   .text-gray-600 {
     color: var(--color-gray-600);
   }
-  .text-red-700 {
-    color: var(--color-red-700);
-  }
   .text-white {
     color: var(--color-white);
   }
   .uppercase {
     text-transform: uppercase;
-  }
-  .shadow {
-    --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
-    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   }
   .shadow-md {
     --tw-shadow: 0 4px 6px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 2px 4px -2px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
@@ -923,6 +907,15 @@
     @media (width >= 80rem) {
       font-size: var(--text-6xl);
       line-height: var(--tw-leading, var(--text-6xl--line-height));
+    }
+  }
+  .\[\&\>ul\]\:space-y-2 {
+    &>ul {
+      :where(& > :not(:last-child)) {
+        --tw-space-y-reverse: 0;
+        margin-block-start: calc(calc(var(--spacing) * 2) * var(--tw-space-y-reverse));
+        margin-block-end: calc(calc(var(--spacing) * 2) * calc(1 - var(--tw-space-y-reverse)));
+      }
     }
   }
 }
@@ -1060,6 +1053,16 @@
   border-radius: var(--radius-md);
   background-color: var(--color-white);
   padding: calc(var(--spacing) * 2);
+}
+.error {
+  margin-block: calc(var(--spacing) * 2);
+  border-radius: var(--radius-md);
+  border-color: var(--color-red-300);
+  background-color: var(--color-red-50);
+  padding: calc(var(--spacing) * 2);
+  font-size: var(--text-sm);
+  line-height: var(--tw-leading, var(--text-sm--line-height));
+  color: var(--color-red-700);
 }
 @keyframes spin {
   to {

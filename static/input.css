@@ -45,3 +45,7 @@ textarea:focus {
 .form-field input {
   @apply bg-white w-full rounded-md p-2;
 }
+
+.error {
+  @apply p-2 my-2 text-sm text-red-700 bg-red-50 rounded-md border-red-300;
+}
