@@ -9,11 +9,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="description" />
     <meta name="keywords" content="keywords" />
-    <title>Django App</title>
+    <title>Django App
+      {% block head_title %}
+      {% endblock head_title %}
+    </title>
     <link rel="stylesheet" href="{% static 'output.css' %}" />
     <link rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.js"></script>
+    {% block extra_head %}
+    {% endblock extra_head %}
   </head>
   <body>
     <nav class="px-10 py-4 border-b border-gray-300 shadow-md">
@@ -37,8 +42,12 @@
         {% endif %}
       </div>
     </nav>
-    {% block base_content %}
-    {% endblock base_content %}
+    <div class="p-2 md:p-4 lg:p-6">
+      {% block base_content %}
+      {% endblock base_content %}
+    </div>
+    {% block extra_body %}
+    {% endblock extra_body %}
     {% block page_js %}
     {% endblock page_js %}
   </body>
