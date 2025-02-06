@@ -1053,6 +1053,16 @@
       }
     }
   }
+  .\[\&\>\.loading\.htmx-request\]\:hidden {
+    &>.loading.htmx-request {
+      display: none;
+    }
+  }
+  .\[\&\>\.loading\.htmx-request\.hidden\]\:\!inline-block {
+    &>.loading.htmx-request.hidden {
+      display: inline-block !important;
+    }
+  }
   .\[\&\>ul\]\:space-y-1 {
     &>ul {
       :where(& > :not(:last-child)) {

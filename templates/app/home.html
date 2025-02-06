@@ -24,10 +24,12 @@
                hx-get="{{ request.path }}"
                hx-trigger="input changed delay:500ms, search"
                hx-target="#article-results"
-               hx-select="#article-results">
-        <button class="flex gap-1 button secondary items-center justify-center"
+               hx-select="#article-results"
+               hx-indicator="svg.loading">
+        <button class="flex gap-1 button secondary items-center justify-center [&>.loading.htmx-request.hidden]:!inline-block [&>.loading.htmx-request]:hidden"
                 type="submit">
-          {% include "svgs/magnifier.svg" with class="w-6 h-6 mr-2" %}
+          {% include "svgs/magnifier.svg" with class="loading w-6 h-6 mr-2" %}
+          {% include "svgs/loading.svg" with class="loading w-6 h-6 mr-2 hidden" %}
           Search
         </button>
         <a href="{{ request.path }}" class="button secondary text-center">Clear search</a>
