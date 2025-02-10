@@ -323,6 +323,28 @@ socialaccount = ["pyjwt[crypto] (>=1.7)", "requests (>=2.0.0)", "requests-oauthl
 steam = ["python3-openid (>=3.0.8)"]
 
 [[package]]
+name = "django-anymail"
+version = "12.0"
+description = "Django email backends and webhooks for Amazon SES, Brevo,  MailerSend, Mailgun, Mailjet, Mandrill, Postal, Postmark, Resend,  SendGrid, SparkPost and Unisender Go  (EmailBackend, transactional email tracking and inbound email signals)"
+optional = false
+python-versions = ">=3.8"
+groups = ["main"]
+files = [
+    {file = "django_anymail-12.0-py3-none-any.whl", hash = "sha256:de8458d713d0f9776da9ed04dcd3a0161be23e9ecbcb49dcf149219700ecd274"},
+    {file = "django_anymail-12.0.tar.gz", hash = "sha256:65789c1b0f42915aa0450a4f173f77572d4c552979b748ddd8125af41972ad30"},
+]
+
+[package.dependencies]
+django = ">=4.0"
+requests = ">=2.4.3"
+urllib3 = ">=1.25.0"
+
+[package.extras]
+amazon-ses = ["boto3 (>=1.10.17)"]
+postal = ["cryptography"]
+resend = ["svix"]
+
+[[package]]
 name = "django-browser-reload"
 version = "1.17.0"
 description = "Automatically reload your browser in development."
@@ -559,4 +581,4 @@ zstd = ["zstandard (>=0.18.0)"]
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.12"
-content-hash = "cd2131c51233bb31daa0aec68862ce1cd9a97fda5e91aae29ebce6064d47a5c6"
+content-hash = "2d078a7279786f70c19e0ecf328cdd6176783ddd9fbef2a9340b3d77b917b9b9"

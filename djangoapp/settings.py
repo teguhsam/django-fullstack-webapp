@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import dj_database_url
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -46,6 +47,7 @@ DJANGO_APPS = [
 
 THIRD_PARTY_APPS = [
     "allauth",
+    "anymail",
     "allauth.account",
     "allauth.socialaccount",
     "allauth.socialaccount.providers.github",
@@ -132,6 +134,14 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+DEFAULT_FROM_EMAIL = os.getenv("MAILGUN_EMAIL", "None")
+ANYMAIL = {
+    "MAILGUN_API_KEY": os.getenv("MAILGUN_API_KEY", "None"),
+    "SEND_DEFAULTS": {"tags": ["djangoapp"]},
+}
+
+EMAIL_BACKEND = "anymail.backends.mailgun.EmailBackend"
+
 LOGIN_REDIRECT_URL = "home"
 LOGOUT_REDIRECT_URL = "account_login"
 
@@ -140,7 +150,8 @@ ACCOUNT_AUTHENTICATION_METHOD = "email"
 ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_USERNAME_REQUIRED = False
-ACCOUNT_EMAIL_VERIFICATION = "none"
+ACCOUNT_EMAIL_VERIFICATION = True
+ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
