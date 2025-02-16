@@ -4,3 +4,5 @@ app/__pycache__
 app/migrations/__pycache__
 .env.docker
 node_modules
+tests/__pycache__
+staticfiles/
