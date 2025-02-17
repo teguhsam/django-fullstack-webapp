@@ -6,3 +6,4 @@ app/migrations/__pycache__
 node_modules
 tests/__pycache__
 staticfiles/
+tests/pages/__pycache__
