@@ -8,3 +8,8 @@ os.environ.setdefault("DJANGO_ALLOW_ASYNC_UNSAFE", "true")
 @pytest.fixture
 def browser_context_args(live_server: LiveServer):
     return {"base_url": live_server.url}
+
+
+@pytest.fixture
+def user_data():
+    return {"email": "test@example.com", "password": "test_password123"}

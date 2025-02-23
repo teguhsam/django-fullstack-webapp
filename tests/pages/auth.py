@@ -8,6 +8,11 @@ class SignupPage:
         self.password_field = page.get_by_placeholder("Password")
         self.signup_button = page.get_by_role("button", name="Create your account")
 
+    def complete_signup_form(self, email, password):
+        self.email_field.fill(email)
+        self.password_field.fill(password)
+        self.signup_button.click()
+
 
 class LoginPage:
     def __init__(self, page: Page):
