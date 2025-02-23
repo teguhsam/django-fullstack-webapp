@@ -1,6 +1,9 @@
 import os
 import pytest
 from pytest_django.live_server_helper import LiveServer
+from django.contrib.auth import get_user_model
+from allauth.account.models import EmailAddress
+from allauth.account.utils import user_email
 
 os.environ.setdefault("DJANGO_ALLOW_ASYNC_UNSAFE", "true")
 
@@ -13,3 +16,21 @@ def browser_context_args(live_server: LiveServer):
 @pytest.fixture
 def user_data():
     return {"email": "test@example.com", "password": "test_password123"}
+
+
+@pytest.fixture()
+def verified_user(user_data):
+    User = get_user_model()
+
+    user = User.objects.create_user(
+        email=user_data["email"], password=user_data["password"]
+    )
+
+    email, created = EmailAddress.objects.get_or_create(
+        user=user, email=user_email(user)
+    )
+
+    email.verified = True
+    email.save()
+
+    return user
