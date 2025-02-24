@@ -4,6 +4,9 @@ from pytest_django.live_server_helper import LiveServer
 from django.contrib.auth import get_user_model
 from allauth.account.models import EmailAddress
 from allauth.account.utils import user_email
+from playwright.sync_api import Page
+from django.test import Client
+
 
 os.environ.setdefault("DJANGO_ALLOW_ASYNC_UNSAFE", "true")
 
@@ -34,3 +37,17 @@ def verified_user(user_data):
     email.save()
 
     return user
+
+
+@pytest.fixture
+def auth_page(page: Page, verified_user, user_data):
+    client = Client()
+    resp = client.post(
+        "/accounts/login",
+        {"login": user_data["email"], "password": user_data["password"]},
+    )
+
+    session_id = resp.cookies["sessionid"].value
+    page.context.add_cookies(
+        [{"name": "sessionid", "value": session_id, "domain": "localhost", "path": "/"}]
+    )
